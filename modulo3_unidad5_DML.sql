@@ -1,24 +1,29 @@
+-- ===========================================
 --Bodega Tech - Scrip de Inventario--
 --Autor: Tomas Acosta--
 --Fecha: 06/07/2026--
+-- ===========================================
 
-
+-- ===========================================
 --SECCION DDL--
+-- ===========================================
 
-DROP TABLE Inventario;
+DROP TABLE IF EXISTS Inventario;
 
 CREATE TABLE Inventario(
-	id_producto int PRIMARY KEY,
-	nombre_producto varchar(100),
-	categoria varchar(50),
-	precio_unitario decimal(10, 2),
-	stock_actual int,
+	id_producto int PRIMARY KEY, -- INT para almacenar identificadores únicos.
+	nombre_producto varchar(100), -- VARCHAR(100) permite guardar nombres de distinta longitud.
+	categoria varchar(50), -- VARCHAR porque la categoría es texto.
+	precio_unitario decimal(10, 2), -- DECIMAL evita errores de precisión en valores monetarios.
+	stock_actual int, -- INT almacena cantidades enteras.
 	stock_minimo int,
-	fecha_ingreso date,
-	activo bit
+	fecha_ingreso date, -- DATE guarda únicamente la fecha.
+	activo bit -- BIT representa estados binarios: 1 = activo, 0 = inactivo.
 );
 
+-- ===========================================
 --SECCION DML-- 
+-- ===========================================
 
 INSERT INTO Inventario
 (id_producto, nombre_producto, categoria, precio_unitario, stock_actual, stock_minimo, fecha_ingreso, activo)
@@ -40,17 +45,15 @@ WHERE id_producto = 1;
 
 UPDATE Inventario 
 SET stock_actual = 68
-where id_producto = 2
+where id_producto = 2;
 
 UPDATE Inventario 
 SET stock_actual = 30
-where id_producto = 6
+where id_producto = 6;
 
 UPDATE Inventario
-SET stock_actual = 0,
-	activo = 0
+SET activo = 0
 where id_producto = 8;
 
 
-SELECT * FROM Inventario
-
+SELECT * FROM Inventario;
