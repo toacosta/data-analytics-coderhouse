@@ -32,7 +32,7 @@ INSERT INTO sales VALUES (1010, '2024-03-20', 205, 304, 'Teclado Mecánico',   '
 
 -- Consulta 1: Exploración general de la tabla sales
 
-select * from sales;
+select * from sales; --uso SELECT * solo para exploración; en producción conviene listar columnas específicas para eficiencia y claridad.
 
 -- Consulta 2: Selección de columnas específicas para finanzas
 
